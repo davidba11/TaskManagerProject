@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Register in T-M</title>
+        <link rel="shortcut icon" th:href="@{/other/diary.ico}"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" th:href="@{/css/register.css}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="register">
+            <form class="container">
+                <div class="card-header bg-header-color">
+                    <h1>Register Your Data</h1>
+                </div>
+                <div class="card-body body-border-style">
+                    <div class="row mt-1 mb-1">
+                        <div class="col-sm-3">
+                            <label>Identification Number:</label>
+                        </div>
+                        <div class="col-sm-3 form-center-border">
+                            <input v-model="user.identification_number" type="number" v-bind:class="[isNull(user.identification_number) ? 'null' : 'not-null']"/>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Username:</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input v-model="user.username" type="text" v-bind:class="[isNull(user.username) ? 'null' : 'not-null']"/>
+                        </div>
+                    </div>
+                    <div class="row mt-1 mb-1">
+                        <div class="col-sm-3">
+                            <label>Enter your Password:</label>
+                        </div>
+                        <div class="col-sm-3 form-center-border">
+                            <input v-model="user.password" type="password" v-bind:class="[isValidatePass1() && reconfirmPass() ? 'not-null' : 'null']"/>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Re-Enter Your Pasword:</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input v-model="password2" type="password" v-bind:class="[isValidatePass2() && reconfirmPass() ? 'not-null' : 'null']"/>
+                        </div>
+                    </div>
+                    <div class="row mt-1 mb-1">
+                        <div class="col-sm-3">
+                            <label>First Name:</label>
+                        </div>
+                        <div class="col-sm-3 form-center-border">
+                            <input v-model="user.first_name" type="text" v-bind:class="[isNull(user.first_name) ? 'null' : 'not-null']"/>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Last Name:</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input v-model="user.last_name" type="text" v-bind:class="[isNull(user.last_name) ? 'null' : 'not-null']"/>
+                        </div>
+                    </div>
+                    <div class="row mt-1 mb-1">
+                        <div class="col-sm-3">
+                            <label>Cellphone Number:</label>
+                        </div>
+                        <div class="col-sm-3 form-center-border">
+                            <input v-model="user.phone_number" type="text"/>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Email:</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input v-model="user.email" type="email" v-bind:class="[confirmEmail() ? 'not-null' : 'null']"/>
+                        </div>
+                    </div>
+                    <div class="row mt-1 mb-1">
+                        <div class="col-sm-3">
+                            <label>Date Of Birth:</label>
+                        </div>
+                        <div class="col-sm-3 form-center-border">
+                            <input v-model="user.date_of_birth" type="date" v-bind:class="[isNull(user.date_of_birth) ? 'null' : 'not-null']"/>
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-warning btn-config" type="button" @click="singIn"><span>Sign In <i class="fas fa-door-open"></i></span></button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-warning" type="button" @click="EncrypterPass"><span>Sign Up <i class="fas fa-user-check"></i></span></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+        <script th:src="@{/js/register.js}"></script>
+    </body>
+</html>

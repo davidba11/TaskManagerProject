@@ -1,0 +1,99 @@
+.mt-1 {
+  margin-top: 10px !important;
+}
+
+.mb-1 {
+  margin-bottom: 10px !important;
+}
+
+#register {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    background: linear-gradient(45deg,black,maroon,darkred,orangered,goldenrod,orangered,darkred,maroon,black);
+    background-size: 400% 400%;
+    position: relative;
+    animation: cambiar 10s ease-in-out infinite;
+}
+
+@keyframes cambiar{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+
+@font-face {
+    font-family: LemonTea;
+    src: url("../other/LemonTea.ttf");
+}
+h1 {
+    padding-left:35%;
+    padding-top: 15px;
+    font-family: LemonTea;
+    color: #AE8535;
+    font-size: 30px
+}
+
+.bg-header-color{
+    background: #280000;
+}
+
+.body-border-style{
+    border-width:4px;
+    border-style:solid;
+    border-color:#280000;
+    border-top:none;
+}
+
+.form-center-border{
+    border-width:4px;
+    border-style:solid;
+    border-color:#280000;
+    border-top:none;
+    border-left:none;
+    border-bottom:none;
+}
+
+label{
+    font-family: LemonTea;
+}
+
+.btn-config{
+    float: right;
+}
+
+span{
+    font-family: LemonTea;
+    color:#280000;
+    font-weight: bold;
+}
+
+input:focus {
+  color: #AE8535;
+  border:2px solid #AE8535;
+  outline: none;
+}
+
+.null{
+  color: red;
+  border:2px solid red;
+  outline: none;
+}
+
+.not-null{
+  color: black;
+  border:2px solid seagreen;
+  outline: none;
+}
