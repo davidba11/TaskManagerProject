@@ -5,17 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableWebSecurity
-@EnableMethodSecurity
 public class SecurityConfig{
     
     @Autowired
@@ -49,16 +44,17 @@ public class SecurityConfig{
         return http.headers().frameOptions().sameOrigin().and()
                 .authorizeHttpRequests().requestMatchers("/css/*","/js/*", "/other/*").permitAll()
                 .requestMatchers(HttpMethod.GET, "/register").permitAll()
+                .requestMatchers(HttpMethod.GET, "/session/*").authenticated()
             .and().formLogin()
                 .loginPage("/login")
-                .loginProcessingUrl("/menu")
+                .loginProcessingUrl("/logincheck")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/menu")
+                .defaultSuccessUrl("/session/menu", true)
                 .permitAll()
             .and().logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login")
-                .permitAll().and().build();
+                .permitAll().and().csrf().disable().build();
     }
 }

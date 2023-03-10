@@ -13,7 +13,7 @@
     <body>
         <div class="padre-transform" id="application">
             <div class="card">
-                <form class="container" action="/menu" method="POST">
+                <form class="container" th:action="@{/logincheck}" method="POST">
                     <div class="card-header">
                         <img th:src="@{/other/icono-login.png}">
                         <div class="row padding-login-form">
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="d-grid gap-2 padding-login-form">
-                            <button class="btn btn-warning" type="button">Sign In</button>
+                            <input class="btn btn-warning" type="submit" value="Sign In">
                         </div>
                     </div>
                     <div class="card-footer">
