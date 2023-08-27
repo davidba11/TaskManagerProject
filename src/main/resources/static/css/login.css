@@ -6,6 +6,7 @@
 * {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    box-sizing: border-box;
 }
 
 :root {
@@ -29,30 +30,27 @@ h1 {
 }
 
 .background-padre-transform{
-    position: absolute;
+    position: static;
     z-index: -2;
 }
 
-.padre-transform > div{
-    background: #280000;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-130%,-50%);
-    text-align: center;
-    width: 450px;
-    height: 575px;
+.login{
+    height:88vmin;
+    position: fixed;
+    transform: translate(-100%,-50%);
+    z-index: 2;
+    overflow:hidden;
     border-radius: 8px;
     box-shadow: 10px 10px 15px rgb(174,133,53);
-    z-index: 2;
+    background: #280000;
 }
 
-.padre-transform > div > form{
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.container{
+    position: relative;
     text-align: center;
-    padding: 50px;
+    height:auto;
+    width: 70vmin;
+    z-index: 2;
 }
 
 .padding-login-form{
@@ -72,9 +70,10 @@ h1 {
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
     width: 100%;
     overflow: hidden;
+    position:relative;
+    height: 100vh;
 }
 
 body {
@@ -116,15 +115,6 @@ body {
 }
 
 @keyframes slidein {
-    /*    0% {
-            opacity: 0;
-        }
-        40% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }*/
     0% {
         opacity: 0;
     }

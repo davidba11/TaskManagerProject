@@ -12,13 +12,16 @@
     </head>
     <body>
         <div class="padre-transform" id="application">
-            <div class="card">
+            <div class="login">
                 <form class="container" th:action="@{/logincheck}" method="POST">
                     <div class="card-header">
                         <img th:src="@{/other/icono-login.png}">
                         <div class="row padding-login-form">
                             <h1>Tasks Manager</h1>
                         </div>
+                    </div>
+                    <div th:if="${error!=null}">
+                        <span style="color:red"><strong th:text="${error}"></strong><i class="fa fa-exclamation" aria-hidden="true"></i></span>
                     </div>
                     <div class="card-body">
                         <div class="input-group mb-3 padding-login-form">
@@ -51,7 +54,7 @@
                         </div>
                     </div>
                 </form>
-            </div>
+            </div>    
         </div>
         <div id="app" class="background-padre-transform">
             <div class="papers" style="--total: 5">

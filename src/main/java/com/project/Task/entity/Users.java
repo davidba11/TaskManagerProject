@@ -3,6 +3,7 @@ package com.project.Task.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import jakarta.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import lombok.*;
 
@@ -13,7 +14,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name = "USERS")
-public class Users {
+public class Users implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

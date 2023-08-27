@@ -25,15 +25,6 @@ public class SecurityConfig{
         return bCryptPasswordEncoder;
     }
     
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//            .authorizeHttpRequests((authz) -> authz
-//                .anyRequest().authenticated()
-//            )
-//            .httpBasic(withDefaults());
-//        return http.build();
-//    }
-    
     @Autowired
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService).passwordEncoder(bCrypt);
@@ -45,6 +36,7 @@ public class SecurityConfig{
                 .authorizeHttpRequests().requestMatchers("/css/*","/js/*", "/other/*").permitAll()
                 .requestMatchers(HttpMethod.GET, "/register").permitAll()
                 .requestMatchers(HttpMethod.GET, "/session/*").authenticated()
+                .requestMatchers(HttpMethod.POST,"/users/*", "/users").permitAll()
             .and().formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/logincheck")
