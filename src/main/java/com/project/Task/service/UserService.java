@@ -1,15 +1,14 @@
 package com.project.Task.service;
 
+import com.project.Task.entity.Roles;
 import com.project.Task.entity.Users;
 import com.project.Task.repository.UserRepositoryInterface;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -69,6 +68,10 @@ public class UserService implements UserDetailsService {
         List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("BASIC"));
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+    }
+    
+    public Collection<Roles> getRoles(Integer id) {
+        return usrRepo.getRoles(id);
     }
 
 }

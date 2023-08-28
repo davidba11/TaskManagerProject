@@ -1,20 +1,37 @@
-<html xmlns="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="es">
     <head>
-        <title>Task Manager</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú con Colores y Animaciones</title>
+        <link rel="shortcut icon" th:href="@{/other/diary.ico}"/>
+        <link rel="stylesheet" th:href="@{/css/menu.css}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </head>
     <body>
-        <div>
-            <header>
-                <h1>Menu</h1>
-            </header>
-            <form action="action">
-                
-            </form>
-            <footer>
-                <span>Prueba</span>
-            </footer>
+        <div id="menu">
+            <div style="margin-right: 30%;">
+                <a href="#" class="neon-animation title-size">TM</a>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="#" class="neon-animation"><i class="fas fa-user-tie"></i> Perfil</a></li>
+                    <li><a href="#" class="neon-animation"><i class="fas fa-thumbtack"></i> Proyectos</a></li>
+                    <li><a href="#" class="neon-animation"><i class="fas fa-tasks"></i> Administraci&oacute;n</a></li>
+                    <li><a href="#" class="neon-animation"><i class="fas fa-book-reader"></i> Mis Tareas</a></li>
+                    <li><a href="#" class="neon-animation" @click="singIn"><i class="fas fa-door-closed"></i> Salir</a></li>
+                </ul>
+            </div>
         </div>
+        <div class="matrix">
+            <div class="matrix-content">
+                <div class="cell">1</div>
+                <div class="cell">2</div>
+                <div class="cell">3</div>
+                <div class="cell">4</div>
+            </div>
+        </div> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+        <script th:src="@{/js/menu.js}"></script>
     </body>
 </html>
