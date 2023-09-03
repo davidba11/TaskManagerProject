@@ -70,8 +70,8 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
     
-    public Collection<Roles> getRoles(Integer id) {
-        return usrRepo.getRoles(id);
-    }
+//    public Collection<Roles> getRoles(Integer id) {
+//        return usrRepo.getRoles(id);
+//    }
 
 }

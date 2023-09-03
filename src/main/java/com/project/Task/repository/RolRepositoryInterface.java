@@ -12,6 +12,6 @@ public interface RolRepositoryInterface extends JpaRepository<Roles, Integer>{
     
     Optional<Roles> findByName(String name);
     
-    Collection<Users> getUsers(Integer id);
+//    Collection<Users> getUsers(Integer id);
     
 }

@@ -22,8 +22,8 @@ public class RolService{
         return rolRepo.findByName(name);
     }
     
-    public Collection<Users> getUsers(Integer id) {
-        return rolRepo.getUsers(id);
-    }
+//    public Collection<Users> getUsers(Integer id) {
+//        return rolRepo.getUsers(id);
+//    }
     
 }
