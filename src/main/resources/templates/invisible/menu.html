@@ -9,28 +9,31 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </head>
     <body>
-        <div id="menu">
-            <div style="margin-right: 30%;">
-                <a href="#" class="neon-animation title-size">TM</a>
+        <div id="app">
+            <div id="menu">
+                <div style="margin-right: 30%;">
+                    <a href="#" class="neon-animation title-size">TM</a>
+                </div>
+                <div>
+                    <ul>
+                        <li><a class="neon-animation" @click="goToProfile"><i class="fas fa-user-tie"></i> Perfil</a></li>
+                        <li><a class="neon-animation" @click="goToProjects"><i class="fas fa-thumbtack"></i> Proyectos</a></li>
+                        <li><a class="neon-animation" @click="goToAdmin"><i class="fas fa-tasks"></i> Administraci&oacute;n</a></li>
+                        <li><a class="neon-animation" @click="goToTasks"><i class="fas fa-book-reader"></i> Mis Tareas</a></li>
+                        <li><a class="neon-animation" @click="singIn"><i class="fas fa-door-closed"></i> Salir</a></li>
+                    </ul>
+                </div>
             </div>
             <div>
-                <ul>
-                    <li><a class="neon-animation" @click="goToProfile"><i class="fas fa-user-tie"></i> Perfil</a></li>
-                    <li><a class="neon-animation" @click="goToProjects"><i class="fas fa-thumbtack"></i> Proyectos</a></li>
-                    <li><a class="neon-animation" @click="goToAdmin"><i class="fas fa-tasks"></i> Administraci&oacute;n</a></li>
-                    <li><a class="neon-animation" @click="goToTasks"><i class="fas fa-book-reader"></i> Mis Tareas</a></li>
-                    <li><a class="neon-animation" @click="singIn"><i class="fas fa-door-closed"></i> Salir</a></li>
-                </ul>
-            </div>
+                <div>
+                    <div v-if="isProfile">Profile</div>
+                    <div>Projects</div>
+                    <div>Admin</div>
+                    <div>My Tasks</div>
+                </div>
+            </div> 
         </div>
-        <div>
-            <div>
-                <div v-if="this.status === 'profile'">Profile</div>
-                <div v-else-if="this.status === 'projet'">Projects</div>
-                <div v-else-if="this.status === 'admin'">Admin</div>
-                <div v-else="this.status === 'task'">My Tasks</div>
-            </div>
-        </div> 
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
         <script th:src="@{/js/menu.js}"></script>
     </body>

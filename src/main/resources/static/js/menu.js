@@ -1,7 +1,8 @@
 const vm = new Vue({
-    el: '#menu',
+    el: '#app',
     data: {
-        status:"new"
+        status:"new",
+        n:1
     },
 
     created() {
@@ -20,16 +21,16 @@ const vm = new Vue({
             setTimeot("redirect()", 1000);
         },
         goToProfile: function (){
-           this.status = "profile"
+           this.status = "profile";
         },
         goToProjects: function (){
-           this.status = "project"
+           this.status = "project";
         },
         goToAdmin: function (){
-           this.status = "admin"
+           this.status = "admin";
         },
         goToTasks: function (){
-           this.status = "task"
+           this.status = "task";
         }
         
     }
