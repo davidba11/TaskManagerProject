@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Menú con Colores y Animaciones</title>
+        <title>Task Manager</title>
         <link rel="shortcut icon" th:href="@{/other/diary.ico}"/>
         <link rel="stylesheet" th:href="@{/css/menu.css}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -15,20 +15,20 @@
             </div>
             <div>
                 <ul>
-                    <li><a href="#" class="neon-animation"><i class="fas fa-user-tie"></i> Perfil</a></li>
-                    <li><a href="#" class="neon-animation"><i class="fas fa-thumbtack"></i> Proyectos</a></li>
-                    <li><a href="#" class="neon-animation"><i class="fas fa-tasks"></i> Administraci&oacute;n</a></li>
-                    <li><a href="#" class="neon-animation"><i class="fas fa-book-reader"></i> Mis Tareas</a></li>
-                    <li><a href="#" class="neon-animation" @click="singIn"><i class="fas fa-door-closed"></i> Salir</a></li>
+                    <li><a class="neon-animation" @click="goToProfile"><i class="fas fa-user-tie"></i> Perfil</a></li>
+                    <li><a class="neon-animation" @click="goToProjects"><i class="fas fa-thumbtack"></i> Proyectos</a></li>
+                    <li><a class="neon-animation" @click="goToAdmin"><i class="fas fa-tasks"></i> Administraci&oacute;n</a></li>
+                    <li><a class="neon-animation" @click="goToTasks"><i class="fas fa-book-reader"></i> Mis Tareas</a></li>
+                    <li><a class="neon-animation" @click="singIn"><i class="fas fa-door-closed"></i> Salir</a></li>
                 </ul>
             </div>
         </div>
-        <div class="matrix">
-            <div class="matrix-content">
-                <div class="cell">1</div>
-                <div class="cell">2</div>
-                <div class="cell">3</div>
-                <div class="cell">4</div>
+        <div>
+            <div>
+                <div v-if="this.status === 'profile'">Profile</div>
+                <div v-else-if="this.status === 'projet'">Projects</div>
+                <div v-else-if="this.status === 'admin'">Admin</div>
+                <div v-else="this.status === 'task'">My Tasks</div>
             </div>
         </div> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
