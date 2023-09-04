@@ -41,6 +41,14 @@ public class UserService implements UserDetailsService {
     public Optional<Users> getUser(Integer id) {
         return usrRepo.findById(id);
     }
+    
+    public Optional<Users> getUser(String username) {
+        
+//        return usrRepo.findByUsername(username);
+        return null;
+        
+//        return usrRepo.findByUsername(username);
+    }
 
     public boolean existUserById(Integer id) {
         return usrRepo.existsById(id);

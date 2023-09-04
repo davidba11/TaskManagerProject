@@ -41,6 +41,11 @@ public class UserController {
         return usrService.getUser(id);
     }
     
+    @GetMapping(value="/{username}")
+    public Optional<Users> getUser(@PathVariable String username){
+        return usrService.getUser(username);
+    }
+    
     @GetMapping(value="/exist/{id}")
     public boolean existUserById(@PathVariable Integer id){
         return usrService.existUserById(id);

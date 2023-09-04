@@ -1,11 +1,12 @@
 package com.project.Task.repository;
 
-import com.project.Task.entity.Stages;
+import com.project.Task.entity.Tasks;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StageRepositoryInterface {
+public interface TaskRepositoryInterface {
     
-    Optional<Stages> findByName(String name);
+    Optional<Tasks> findByName(String name);
+    
 }
