@@ -7,6 +7,7 @@
         <link rel="shortcut icon" th:href="@{/other/diary.ico}"/>
         <link rel="stylesheet" th:href="@{/css/menu.css}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
         <div id="app">
@@ -26,10 +27,71 @@
             </div>
             <div>
                 <div>
-                    <div v-if="isProfile">Profile</div>
-                    <div>Projects</div>
-                    <div>Admin</div>
-                    <div>My Tasks</div>
+                    <div v-if="isProfile">
+                        <form class="container">
+                            <div class="card-header bg-header-color">
+                                <h1>Profile</h1>
+                            </div>
+                            <div class="card-body body-border-style">
+                                <div class="row mt-1 mb-1">
+                                    <div class="col-sm-3">
+                                        <label>ID: </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input v-model="user.id" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button class="btn btn-warning" type="button" @click="searchUser"><span>Search User <i class="fas fa-user-check"></i></span></button>
+                                </div>
+                                <div class="row mt-1 mb-1">
+                                    <div class="col-sm-3">
+                                        <label>Username:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input v-model="user.username"/>
+                                    </div>
+                                </div>
+                                <div class="row mt-1 mb-1">
+                                    <div class="col-sm-3">
+                                        <label>First Name:</label>
+                                    </div>
+                                    <div class="col-sm-3 form-center-border">
+                                        <input v-model="user.first_name"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label>Last Name:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text"/>
+                                    </div>
+                                </div>
+                                <div class="row mt-1 mb-1">
+                                    <div class="col-sm-3">
+                                        <label>Cellphone Number:</label>
+                                    </div>
+                                    <div class="col-sm-3 form-center-border">
+                                        <input type="text"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="email"/>
+                                    </div>
+                                </div>
+                                <div class="row mt-1 mb-1">
+                                    <div class="col-sm-3">
+                                        <label>Date Of Birth:</label>
+                                    </div>
+                                    <div class="col-sm-3 form-center-border">
+                                        <input v-model="user.date_of_birth"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div> 
         </div>

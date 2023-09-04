@@ -37,6 +37,7 @@ public class SecurityConfig{
                 .requestMatchers(HttpMethod.GET, "/register").permitAll()
                 .requestMatchers(HttpMethod.GET, "/session/*").authenticated()
                 .requestMatchers(HttpMethod.POST,"/users/*", "/users").permitAll()
+                .requestMatchers(HttpMethod.GET,"/users/*", "/users").permitAll()
             .and().formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/logincheck")
